@@ -57,14 +57,7 @@ outputs/       # Generated model metrics (ignored by Git)
 notebooks/     # Beginner-friendly Jupyter workflow
 src/           # Reproducible baseline-model runner
 notebooks/legacy/  # Original exploratory notebooks
-tests/         # Automated tests
 requirements.txt
-```
-
-## Test
-
-```bash
-python -m unittest discover -s tests
 ```
 
 ## Original coursework
