@@ -1,6 +1,6 @@
 import unittest
 
-from Code.run_baseline_models import FEATURES, evaluate, load_dataset
+from src.run_baseline_models import FEATURES, evaluate, load_dataset
 
 
 class BaselineModelTests(unittest.TestCase):

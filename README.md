@@ -30,8 +30,8 @@ the metrics CSV in `outputs/`.
 ## Command-line workflow
 
 ```bash
-python Code/run_baseline_models.py
-python Code/run_baseline_models.py --dataset QUES --output outputs/ques_results.csv
+python src/run_baseline_models.py
+python src/run_baseline_models.py --dataset QUES --output outputs/ques_results.csv
 ```
 
 The runner uses a deterministic 80/20 train/test split and reports R², MAE, and
@@ -55,7 +55,8 @@ results are useful for comparison and learning—not production forecasts.
 data/          # QUES and UIMS source datasets
 outputs/       # Generated model metrics (ignored by Git)
 notebooks/     # Beginner-friendly Jupyter workflow
-Code/          # Reproducible runner and original exploratory notebooks
+src/           # Reproducible baseline-model runner
+notebooks/legacy/  # Original exploratory notebooks
 tests/         # Automated tests
 requirements.txt
 ```
@@ -69,6 +70,6 @@ python -m unittest discover -s tests
 ## Original coursework
 
 The original [report](Report.pdf), [presentation](Project%20Presentation.pptx),
-and exploratory notebooks remain available in `Code/`. Some older neural-network
+and exploratory notebooks remain available in `notebooks/legacy/`. Some older neural-network
 notebooks use retired Keras APIs; use the maintained baseline workflow above for
 a current, reproducible starting point.
