@@ -57,12 +57,14 @@ outputs/       # Generated model metrics (ignored by Git)
 notebooks/     # Beginner-friendly Jupyter workflow
 src/           # Reproducible baseline-model runner
 notebooks/legacy/  # Original exploratory notebooks
+documentation/ # Project report and presentation
 requirements.txt
 ```
 
 ## Original coursework
 
-The original [report](Report.pdf), [presentation](Project%20Presentation.pptx),
-and exploratory notebooks remain available in `notebooks/legacy/`. Some older neural-network
+The original [report](documentation/report.pdf),
+[presentation](documentation/project_presentation.pptx), and exploratory notebooks
+remain available in `notebooks/legacy/`. Some older neural-network
 notebooks use retired Keras APIs; use the maintained baseline workflow above for
 a current, reproducible starting point.
