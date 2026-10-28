@@ -1,9 +1,97 @@
-# Software-Maintainence-Predictibility
+# Software Maintainability Prediction
 
-Software Maintainability is one of the most significant aspects while assessing nature of the software product. It is characterized as the straightforwardness with which a software framework or segment can be changed to address issues, improve execution or different credits or adjust to a changed condition. Following the upkeep conduct of the software product is mind boggling. This is definitely the explanation that anticipating the expense and hazard related with upkeep after conveyance is very troublesome which is broadly recognized by the analysts and experts. While trying to address this issue quantitatively, the principle motivation behind this paper is to propose utilization of barely any machine learning calculations with a target to anticipate software maintainability and assess them. So as to contemplate and assess its presentation, two business datasets UIMS (User Interface Management Framework) and QUES (Quality Evaluation System) are utilized. The code for these two frameworks was written in Classical Ada. The UIMS contains 39 classes and QUES datasets contains 71 classes. To quantify the practicality, number of "CHANGE" is seen over a time of three years. We can characterize CHANGE as the quantity of lines of code which were included, erased or adjusted during a multiyear support that is all.
+Compare machine-learning regressors that estimate a class's future maintenance
+effort (`change`) from object-oriented software metrics. The repository includes
+two small research datasets and a reproducible baseline runner.
 
-The objective of our investigation was to build appropriate model utilizing machine learning algorithms for the forecast of cost arranged to software maintainability which are anything but difficult to apply as well as could lessen the expectation mistakes to least.
+## Quick start
 
-The expectation execution of the machine learning calculations based models were surveyed and contrasted and winning models as far as R Squared values, MAE values and RMSE values. It was discovered that KNN and Ridge Regression model beat the predominant models as the least RMSE values was recorded. Most definitely, KNN (R- squared value = 0.64, RMSE value = 28.09) and Ridge regression (R- squared value = 0.64, RMSE value = 27.88) models are fundamentally better over others on the QUES dataset though GRNN and PNN gave convincing results of R Squared values on both the datasets i.e. QUES (GRNN R- squared value = 0.36, GRNN RMSE value = 41.52, PNN R- squared value = 0.4, PNN RMSE value = 39.07) and UIMS (GRNN R- squared value = 0.42, GRNN RMSE value = 34.17, PNN R- squared value = 0.45, PNN RMSE value = 31.5). 
+```bash
+git clone https://github.com/Rahul-Chaudhry/Software-Maintainence-Predictibility.git
+cd Software-Maintainence-Predictibility
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python Code/run_baseline_models.py
+```
 
-Therefore, it was closed GRNN and PNN are without a doubt a helpful displaying procedure and it could be utilized as a sound option for the prediction of software maintainability.
+On Windows PowerShell, activate the virtual environment with:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+The command evaluates five regression models on both datasets, shows R², MAE,
+and RMSE in the terminal, and saves the complete results to
+`results/baseline_results.csv`.
+
+## Run one dataset
+
+```bash
+python Code/run_baseline_models.py --dataset QUES --output results/ques_results.csv
+python Code/run_baseline_models.py --dataset UIMS
+```
+
+Use `--dataset all` (the default) to evaluate both datasets.
+
+## Datasets
+
+| Dataset | Rows | Description |
+| --- | ---: | --- |
+| `QUES.csv` | 71 | Quality Evaluation System classes |
+| `UIMS1.csv` | 39 | User Interface Management System classes |
+
+Each row has ten object-oriented metrics (`dit`, `noc`, `mpc`, `rfc`, `lcom`,
+`dac`, `wmc`, `nom`, `size2`, and `size1`) and the target `change`: the number
+of lines added, removed, or modified during maintenance.
+
+## Baseline models
+
+The maintained runner applies the same deterministic 80/20 train/test split
+(`random_state=0`) to each model:
+
+- Linear regression
+- Ridge regression
+- K-nearest-neighbors regression
+- Decision-tree regression
+- Support-vector regression
+
+The datasets are small, so the results are useful for comparison and learning,
+not as reliable production-performance estimates.
+
+## Original notebooks
+
+The original exploratory Jupyter notebooks are preserved in `Code/`. They are
+valuable coursework references, but several depend on retired Keras APIs and
+expect their CSV files to be in the current folder. For an up-to-date and
+reproducible starting point, use `Code/run_baseline_models.py`.
+
+To inspect the original notebooks after installation, run:
+
+```bash
+jupyter lab
+```
+
+## Project layout
+
+```text
+Code/
+  run_baseline_models.py  # Reproducible command-line comparison
+  *.ipynb                 # Original exploratory notebooks
+Data-Files/               # QUES and UIMS datasets
+results/                  # Generated CSV evaluation results (ignored by Git)
+tests/                    # Small regression tests
+requirements.txt          # Required Python libraries
+```
+
+## Test
+
+```bash
+python -m unittest discover -s tests
+```
+
+## Coursework materials
+
+The original [report](Report.pdf) and [presentation](Project%20Presentation.pptx)
+remain available in the repository.
