@@ -4,5 +4,5 @@ __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
 *.pyc
-results/*.csv
-!results/.gitkeep
+outputs/*.csv
+!outputs/.gitkeep

@@ -18,8 +18,8 @@ from sklearn.tree import DecisionTreeRegressor
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATASETS = {
-    "QUES": PROJECT_ROOT / "Data-Files" / "QUES.csv",
-    "UIMS": PROJECT_ROOT / "Data-Files" / "UIMS1.csv",
+    "QUES": PROJECT_ROOT / "data" / "QUES.csv",
+    "UIMS": PROJECT_ROOT / "data" / "UIMS1.csv",
 }
 FEATURES = ("dit", "noc", "mpc", "rfc", "lcom", "dac", "wmc", "nom", "size2", "size1")
 TARGET = "change"
@@ -94,8 +94,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--output",
         type=Path,
-        default=PROJECT_ROOT / "results" / "baseline_results.csv",
-        help="CSV file to create (default: results/baseline_results.csv)",
+        default=PROJECT_ROOT / "outputs" / "baseline_results.csv",
+        help="CSV file to create (default: outputs/baseline_results.csv)",
     )
     return parser
 
